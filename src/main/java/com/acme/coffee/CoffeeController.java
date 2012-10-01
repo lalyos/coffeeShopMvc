@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.acme.coffee.domain.Coffee;
 import com.acme.coffee.service.CoffeeRepository;
 
 @Controller
@@ -36,6 +38,17 @@ public class CoffeeController {
     public String edit(@RequestParam String coffee, Model model) {
         model.addAttribute("coffee", repository.findByName(coffee));
         return "coffee/edit";
+    }
+    
+    @RequestMapping(value="/save", method=RequestMethod.POST)
+    public String save(@RequestParam String name, @RequestParam Integer price, @RequestParam String imageUrl, HttpSession session) {
+        
+        System.out.println("about tu save ..");
+        Coffee coffee = new Coffee(name, price, imageUrl);
+        repository.add(coffee);
+        session.setAttribute("msg", "You have succesfully added: " + coffee.getName());
+       
+        return "redirect:/coffee/list";
     }
 }
 
