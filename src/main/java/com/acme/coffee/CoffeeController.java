@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,10 +42,8 @@ public class CoffeeController {
     }
     
     @RequestMapping(value="/save", method=RequestMethod.POST)
-    public String save(@RequestParam String name, @RequestParam Integer price, @RequestParam String imageUrl, HttpSession session) {
+    public String save(@ModelAttribute Coffee coffee, HttpSession session) {
         
-        System.out.println("about tu save ..");
-        Coffee coffee = new Coffee(name, price, imageUrl);
         repository.add(coffee);
         session.setAttribute("msg", "You have succesfully added: " + coffee.getName());
        
