@@ -9,6 +9,9 @@ import com.acme.coffee.service.CoffeeRepository;
 @Controller
 public class CoffeeController {
 
+    @Autowired
+    CoffeeRepository repository;
+    
     @RequestMapping("/coffee/list")
     public String list() {
         return "coffee/list";
