@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.acme.coffee.service.CoffeeRepository;
 
@@ -24,9 +25,8 @@ public class CoffeeController {
     }
     
     @RequestMapping("/delete")
-    public String delete(HttpServletRequest request, HttpSession session) {
+    public String delete(@RequestParam String coffee, HttpSession session) {
         
-        String coffee = request.getParameter("coffee");
         repository.delete(coffee);
         session.setAttribute("msg", "You have succesfully deleted: " + coffee);
         return "redirect:/coffee/list";
