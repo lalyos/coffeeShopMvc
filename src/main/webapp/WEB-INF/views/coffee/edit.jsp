@@ -12,12 +12,13 @@
   <input name="name" type="hidden"  value="${coffee.name}"/>
 </c:when>
 <c:otherwise>
-  <br/>name: <input name="name" type="text"  value="${coffee.name}"/>
+  <br/>name: <form:input path="name"/>
 </c:otherwise>
 </c:choose>
-	<br/>price: <input name="price"  type="text"   value="${coffee.price}"/>
+	<br/>price: <form:input path="price"/>
       <form:errors path="price" cssStyle="color:red;" />
   
-	<br/>imageUrl <input name="imageUrl" type="text"   value="${coffee.imageUrl}"/>
+	<br/>imageUrl <form:input path="imageUrl"/>
 	<br/><input type="submit" value="save" />
 </form:form>
+
