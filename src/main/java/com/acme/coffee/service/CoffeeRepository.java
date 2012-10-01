@@ -8,4 +8,7 @@ public interface CoffeeRepository {
 
     public Collection<Coffee> getAllCoffies();
 
+    public void delete(String coffee);
+    
+    public void add(Coffee coffee);
 }

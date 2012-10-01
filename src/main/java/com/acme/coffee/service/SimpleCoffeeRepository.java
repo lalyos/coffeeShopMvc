@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 
 import com.acme.coffee.domain.Coffee;
 
@@ -30,6 +29,16 @@ public class SimpleCoffeeRepository implements CoffeeRepository {
         
         Coffee coffee = new Coffee(name, price, url);
         coffees.put(name, coffee);
+    }
+
+    public void delete(String coffee) {
+        coffees.remove(coffee);
+        
+    }
+
+    public void add(Coffee coffee) {
+        coffees.put(coffee.getName(), coffee);
+        
     }
 
 }
