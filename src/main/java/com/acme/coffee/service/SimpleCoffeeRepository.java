@@ -6,8 +6,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.stereotype.Component;
+
 import com.acme.coffee.domain.Coffee;
 
+@Component
 public class SimpleCoffeeRepository implements CoffeeRepository {
 
     Map<String, Coffee> coffees = new ConcurrentHashMap<String, Coffee>();
