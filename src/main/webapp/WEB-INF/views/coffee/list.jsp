@@ -3,6 +3,7 @@
 
 <c:if test="${not empty msg }">
   <div style="background: green">${msg }</div>
+  <c:remove var="msg"  scope="session"  />
 </c:if>
 
 <ul>
