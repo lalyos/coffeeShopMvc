@@ -10,6 +10,7 @@ import org.springframework.validation.BindingErrorProcessor;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,8 +39,8 @@ public class CoffeeController {
         return "redirect:/coffee/list";
     }
     
-    @RequestMapping("/edit")
-    public String edit(@RequestParam String coffee, Model model) {
+    @RequestMapping("/{coffee}")
+    public String edit(@PathVariable String coffee, Model model) {
         model.addAttribute("coffee", repository.findByName(coffee));
         return "coffee/edit";
     }

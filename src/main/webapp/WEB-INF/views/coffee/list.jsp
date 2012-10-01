@@ -11,9 +11,7 @@
 <c:url var="deleteUrl" value="/coffee/delete" >
   <c:param name="coffee" value="${coffee.name}" />
 </c:url>
-<c:url var="editUrl" value="/coffee/edit" >
-  <c:param name="coffee" value="${coffee.name}" />
-</c:url>
+<c:url var="editUrl" value="/coffee/${coffee.name}" />
 
 <li> <img src="${coffee.imageUrl}" width='100px' /> ${coffee.name} (${coffee.price}) 
 <a href="${editUrl}">Edit</a> | 
