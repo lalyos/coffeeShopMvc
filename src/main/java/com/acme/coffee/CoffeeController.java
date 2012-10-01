@@ -50,5 +50,13 @@ public class CoffeeController {
        
         return "redirect:/coffee/list";
     }
+    
+    @RequestMapping("/new")
+    public String add(Model model) {
+        
+        model.addAttribute("coffee", new Coffee());
+        
+        return "coffee/edit";
+    }
 }
 

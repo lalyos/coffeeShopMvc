@@ -21,3 +21,6 @@
 </li>
 </c:forEach>
 </ul>
+
+<c:url var="createUrl" value="/coffee/new" />
+<br/><a href="${createUrl}">Add New Coffee</a>
