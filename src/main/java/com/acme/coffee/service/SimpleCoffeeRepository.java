@@ -44,4 +44,12 @@ public class SimpleCoffeeRepository implements CoffeeRepository {
         
     }
 
+    public Coffee findByName(String coffee) {
+        Coffee ret = coffees.get(coffee);
+        if (ret == null) {
+            throw new CoffeeNotFoundException(coffee);
+        }
+        return ret;
+    }
+
 }

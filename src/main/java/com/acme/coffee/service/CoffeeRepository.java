@@ -11,4 +11,6 @@ public interface CoffeeRepository {
     public void delete(String coffee);
     
     public void add(Coffee coffee);
+
+    public Coffee findByName(String coffee);
 }
