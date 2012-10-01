@@ -31,5 +31,11 @@ public class CoffeeController {
         session.setAttribute("msg", "You have succesfully deleted: " + coffee);
         return "redirect:/coffee/list";
     }
+    
+    @RequestMapping("/edit")
+    public String edit(@RequestParam String coffee, Model model) {
+        model.addAttribute("coffee", repository.findByName(coffee));
+        return "coffee/edit";
+    }
 }
 
