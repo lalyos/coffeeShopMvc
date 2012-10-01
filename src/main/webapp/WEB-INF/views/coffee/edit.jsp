@@ -23,4 +23,3 @@
 	<br/><input type="submit" value="save" />
 </form:form>
 
-<epam:debugMap map="${requestScope}"></epam:debugMap>
