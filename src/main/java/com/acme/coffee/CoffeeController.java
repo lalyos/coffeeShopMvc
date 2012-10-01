@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingErrorProcessor;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +47,7 @@ public class CoffeeController {
     }
     
     @RequestMapping(value="/save", method=RequestMethod.POST)
-    public String save(@ModelAttribute Coffee coffee, BindingResult bindingResult, HttpSession session) {
+    public String save(@Validated Coffee coffee, BindingResult bindingResult, HttpSession session) {
 
         if (coffee.getName().contains(" ")) {
             bindingResult.addError(new FieldError("coffee", "name", "Please don't use space inside of the name"));

@@ -1,9 +1,18 @@
 package com.acme.coffee.domain;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class Coffee {
 
+    @NotNull
     private String name;
+    @NotNull
+    @Min(100)
     private Integer price;
+    @NotNull
+    @Pattern(regexp="http:.*", message="please enter an url starting with http")
     private String imageUrl;
 
     public Coffee(){

@@ -20,6 +20,7 @@
       <form:errors path="price" cssStyle="color:red;" />
   
 	<br/>imageUrl <form:input path="imageUrl"/>
+      <form:errors path="imageUrl" cssStyle="color:red;" />
 	<br/><input type="submit" value="save" />
 </form:form>
 
