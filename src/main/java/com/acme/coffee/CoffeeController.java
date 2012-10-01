@@ -27,7 +27,7 @@ public class CoffeeController {
         String coffee = request.getParameter("coffee");
         repository.delete(coffee);
         model.addAttribute("msg", "You have succesfully deleted: " + coffee);
-        return "coffee/list";
+        return "redirect:/coffee/list";
     }
 }
 
