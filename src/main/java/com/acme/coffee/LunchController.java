@@ -1,5 +1,7 @@
 package com.acme.coffee;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -7,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LunchController {
 
     @RequestMapping("/lunch")
-    public String lunch() {
+    public String lunch(HttpServletRequest request) {
+        request.setAttribute("msg", "Spring MVC rulez!");
         return "lunch";
     }
 }
