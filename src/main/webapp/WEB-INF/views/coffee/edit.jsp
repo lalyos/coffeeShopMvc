@@ -13,6 +13,7 @@
 </c:when>
 <c:otherwise>
   <br/>name: <form:input path="name"/>
+      <form:errors path="name" cssStyle="color:red;" />
 </c:otherwise>
 </c:choose>
 	<br/>price: <form:input path="price"/>
