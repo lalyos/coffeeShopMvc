@@ -1,6 +1,10 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <h2>coffees</h2>
 
+<c:if test="${not empty msg }">
+  <div style="background: green">${msg }</div>
+</c:if>
+
 <ul>
 <c:forEach items="${coffees}" var="coffee">
 <c:url var="deleteUrl" value="/coffee/delete" >

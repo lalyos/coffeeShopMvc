@@ -1,6 +1,7 @@
 package com.acme.coffee;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,11 +23,11 @@ public class CoffeeController {
     }
     
     @RequestMapping("/coffee/delete")
-    public String delete(HttpServletRequest request, Model model) {
+    public String delete(HttpServletRequest request, HttpSession session) {
         
         String coffee = request.getParameter("coffee");
         repository.delete(coffee);
-        model.addAttribute("msg", "You have succesfully deleted: " + coffee);
+        session.setAttribute("msg", "You have succesfully deleted: " + coffee);
         return "redirect:/coffee/list";
     }
 }
