@@ -11,18 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.acme.coffee.service.CoffeeRepository;
 
 @Controller
+@RequestMapping("/coffee/*")
 public class CoffeeController {
 
     @Autowired
     CoffeeRepository repository;
     
-    @RequestMapping("/coffee/list")
+    @RequestMapping("list")
     public String list(Model model) {
         model.addAttribute("coffees", repository.getAllCoffies());
         return "coffee/list";
     }
     
-    @RequestMapping("/coffee/delete")
+    @RequestMapping("delete")
     public String delete(HttpServletRequest request, HttpSession session) {
         
         String coffee = request.getParameter("coffee");
