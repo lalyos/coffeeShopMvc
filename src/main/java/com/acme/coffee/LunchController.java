@@ -9,7 +9,7 @@ public class LunchController {
 
     @RequestMapping("/lunch")
     public String lunch(Model model) {
-        model.addAttribute("msg", "Spring mvc Model rulez");
+        model.addAttribute("msg", "Spring mvc Model ruley");
         return "lunch";
     }
 }
